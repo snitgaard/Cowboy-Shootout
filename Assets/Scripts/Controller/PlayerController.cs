@@ -7,13 +7,11 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     private Vector3 projectileOffset;
     private Rigidbody playerRb;
-    private GameObject focalPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        focalPoint = GameObject.Find("Focal Point");
     }
 
     // Update is called once per frame
