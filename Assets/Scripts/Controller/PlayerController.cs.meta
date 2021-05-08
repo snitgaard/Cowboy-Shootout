@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - projectilePrefab: {fileID: 8979153734821932683, guid: 19c758f45afc8eb48996016786512198,
       type: 3}
-  - player: {fileID: 1408390643462832998, guid: 995be6c780e2ab64581943cfaade8584,
+  - controller: {fileID: 4498679736334956289, guid: 995be6c780e2ab64581943cfaade8584,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
