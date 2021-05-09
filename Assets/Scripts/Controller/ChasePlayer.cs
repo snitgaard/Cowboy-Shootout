@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChasePlayer : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ChasePlayer : MonoBehaviour
     private Rigidbody enemyRb;
 
     private GameObject player;
+
+    public Transform target;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +22,17 @@ public class ChasePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed);
+        if (target != null)
+        {
+            transform.LookAt(target);
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyRb.AddForce(lookDirection * speed);
+        }
+
         if (transform.position.y < -10) 
         {
             Destroy(gameObject);
         }
+
     }
 }
