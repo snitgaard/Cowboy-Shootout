@@ -5,28 +5,50 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    private Vector3 projectileOffset;
-    private Rigidbody playerRb;
     private float speed = 30f;
+    public float jumpHeight = 2.0f;
     public CharacterController controller;
+    public float gravity = -4.00f;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    Vector3 velocity;
+    bool isGrounded;
+
+        
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(isGrounded && velocity.y < 0) 
+        {
+            Debug.Log("AAAAAAAAAA");
+            velocity.y = -2f;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isGrounded) 
+        {
+            Debug.Log("Space Down");
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
 
         //float verticalInput = Input.GetAxis("Vertical");
        // playerRb.AddForce(focalPoint.transform.forward * verticalInput * speed * Time.deltaTime);
