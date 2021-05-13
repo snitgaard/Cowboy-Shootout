@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4498679736334956289}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,8 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6563afe6f932f2d44b12575414b95cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8979153734821932683, guid: 19c758f45afc8eb48996016786512198,
-    type: 3}
   jumpHeight: 2
   controller: {fileID: 4498679736334956289}
   gravity: -4
