@@ -35,7 +35,7 @@ public class ChasePlayer : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        OnTriggerEnter(playerCollider);
+        //OnTriggerEnter(playerCollider);
     }
 
     void OnTriggerEnter(Collider other)

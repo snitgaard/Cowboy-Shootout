@@ -5,13 +5,13 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public float health = 20f;
-    public ParticleSystem effect;
+    public ParticleSystem bloodEffect;
   //  public ParticleSystem hitEffect;
 
     public void TakeDamage(float amount) 
     {
         // hitEffect.Play();
-        effect.Play();
+        Instantiate(bloodEffect, transform.position, transform.rotation).Play();
         health -= amount;
         if(health <= 0f) 
         {
