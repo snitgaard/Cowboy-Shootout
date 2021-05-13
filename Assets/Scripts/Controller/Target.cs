@@ -11,7 +11,7 @@ public class Target : MonoBehaviour
     public void TakeDamage(float amount) 
     {
         // hitEffect.Play();
-        Instantiate(bloodEffect, transform.position, transform.rotation).Play();
+        
         health -= amount;
         if(health <= 0f) 
         {
@@ -22,7 +22,7 @@ public class Target : MonoBehaviour
 
     void Die() 
     {
-        
+        Instantiate(bloodEffect, transform.position, transform.rotation).Play();
         Destroy(gameObject);
     }
 }
