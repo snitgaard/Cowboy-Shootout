@@ -5,11 +5,11 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public float health = 20f;
-    public ParticleSystem hitEffect;
+  //  public ParticleSystem hitEffect;
 
     public void TakeDamage(float amount) 
     {
-        hitEffect.Play();
+       // hitEffect.Play();
         health -= amount;
         if(health <= 0f) 
         {

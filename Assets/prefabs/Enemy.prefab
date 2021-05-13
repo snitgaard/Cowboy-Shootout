@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  playerCollider: {fileID: -4019013189846950483, guid: 995be6c780e2ab64581943cfaade8584,
+    type: 3}
   target: {fileID: 1405543875271034334, guid: 995be6c780e2ab64581943cfaade8584, type: 3}
   damage: 1
 --- !u!54 &-4402725279045781728
@@ -142,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  hitEffect: {fileID: 0}
 --- !u!198 &2569159833001459295
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -157,9 +158,9 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

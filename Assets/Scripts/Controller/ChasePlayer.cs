@@ -10,7 +10,7 @@ public class ChasePlayer : MonoBehaviour
     private Rigidbody enemyRb;
 
     private GameObject player;
-
+    public Collider playerCollider;
     public Transform target;
 
     public float damage = 1.0f;
@@ -35,7 +35,7 @@ public class ChasePlayer : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        OnTriggerEnter(playerCollider);
     }
 
     void OnTriggerEnter(Collider other)

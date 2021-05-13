@@ -4,6 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - playerCollider: {fileID: -4019013189846950483, guid: 995be6c780e2ab64581943cfaade8584,
+      type: 3}
   - target: {fileID: 1405543875271034334, guid: 995be6c780e2ab64581943cfaade8584,
       type: 3}
   executionOrder: 0
