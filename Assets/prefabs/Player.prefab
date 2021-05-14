@@ -16,8 +16,30 @@ MonoBehaviour:
   damage: 10
   range: 100
   impactForce: 30
+  maxAmmo: 10
+  reloadTime: 5
   fpsCam: {fileID: 5212383948806344034}
   muzzleFlash: {fileID: 4964787551563472186}
+  animator: {fileID: 5900214012370061310}
+--- !u!95 &5900214012370061310
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47151124516661437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 541d0d74ede23be43af0aafcfe61eca8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &373018873514444434
 GameObject:
   m_ObjectHideFlags: 0
