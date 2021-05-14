@@ -35,13 +35,13 @@ public class ChasePlayer : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //OnTriggerEnter(playerCollider);
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            Destroy(target);
+            Destroy(player);
 
     }
 }
