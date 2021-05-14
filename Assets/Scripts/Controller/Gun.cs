@@ -58,7 +58,7 @@ public class Gun : MonoBehaviour
 
         animator.SetBool("Reloading", true);
 
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(reloadTime - .25f);
 
         animator.SetBool("Reloading", false);
 
