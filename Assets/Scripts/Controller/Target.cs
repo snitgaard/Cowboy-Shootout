@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
     public ParticleSystem bloodEffect;
   //  public ParticleSystem hitEffect;
 
-    public void TakeDamage(float amount) 
+    public int TakeDamage(float amount) 
     {
         // hitEffect.Play();
         
@@ -17,6 +17,11 @@ public class Target : MonoBehaviour
         {
             
             Die();
+            return 1;
+        }
+        else
+        {
+            return 0;
         }
     }
 

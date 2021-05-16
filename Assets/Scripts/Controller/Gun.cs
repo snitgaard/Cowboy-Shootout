@@ -23,11 +23,15 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
     public Text currentAmmoText;
+    public Text enemiesKilledText;
+    public int enemiesKilled = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        enemiesKilledText = GameObject.Find("Canvas/EnemiesKilled").GetComponent<Text>();
+        enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText = GameObject.Find("Canvas/Ammo").GetComponent<Text>();
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (currentAmmo == -1)
@@ -39,6 +43,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (isReloading)
         {
@@ -85,7 +90,13 @@ public class Gun : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null) 
             {
-                target.TakeDamage(damage);
+                if(target.TakeDamage(damage) == 0) 
+                {
+                }
+                else
+                {
+                    enemiesKilled++; 
+                }
             }
             if (hit.rigidbody != null) 
             {
