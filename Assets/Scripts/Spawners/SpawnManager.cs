@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    private float spawnRange = 100;
+    private float spawnRange = 80;
     public int waveNumber = 1;
     public int enemyCount;
     

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Gun : MonoBehaviour
     public float impactForce = 30f;
 
     public int maxAmmo = 10;
-    private int currentAmmo;
+    public int currentAmmo;
     public float reloadTime = 5f;
     private bool isReloading = false;
 
@@ -21,10 +22,14 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     public Animator animator;
+    public Text currentAmmoText;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        currentAmmoText = GameObject.Find("Canvas/Ammo").GetComponent<Text>();
+        currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (currentAmmo == -1)
         {
             currentAmmo = maxAmmo;
@@ -34,6 +39,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (isReloading)
         {
             return;
