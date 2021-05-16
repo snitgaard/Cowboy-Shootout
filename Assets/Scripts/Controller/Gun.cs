@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         currentAmmoText = GameObject.Find("Canvas/Ammo").GetComponent<Text>();
-        currentAmmoText.text = "" + currentAmmo + "/ " + maxAmmo;
+        currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (currentAmmo == -1)
         {
             currentAmmo = maxAmmo;
