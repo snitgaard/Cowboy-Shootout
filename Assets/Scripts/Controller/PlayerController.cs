@@ -13,15 +13,20 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     Vector3 velocity;
     bool isGrounded;
+    private GameObject powerUp;
+    private Rigidbody playerRb;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerRb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        powerUp = GameObject.Find("PowerUp(Clone)");
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0) 
@@ -43,5 +48,13 @@ public class PlayerController : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "PowerUp")
+            Debug.Log("aaaaaaaaaa324234");
+            Destroy(powerUp);
+
     }
 }

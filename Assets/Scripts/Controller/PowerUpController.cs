@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-
+    public GameObject powerUp;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
