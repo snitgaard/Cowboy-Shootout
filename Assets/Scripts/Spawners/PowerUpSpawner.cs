@@ -20,6 +20,7 @@ public class PowerUpSpawner : MonoBehaviour
 
         if (powerUpCount == 0)
         {
+            Debug.Log("Spawned new PowerUp");
             Instantiate(powerUp, GenerateSpawnPositions(), powerUp.transform.rotation);
         }
     }

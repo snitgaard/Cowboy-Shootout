@@ -15,18 +15,18 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     private GameObject powerUp;
     private Rigidbody playerRb;
+    private bool powerUpped;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        powerUp = GameObject.Find("PowerUp(Clone)");
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0) 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded) 
+        if (Input.GetButtonDown("Jump") && isGrounded || Input.GetButtonDown("Jump") && powerUpped == true) 
         {
             Debug.Log("Space Down");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -50,11 +50,17 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void OnTriggerEnter(Collider other)
+    IEnumerator OnTriggerEnter(Collider other)
     {
+        powerUp = GameObject.Find("PowerUp(Clone)");
         if (other.gameObject.tag == "PowerUp")
-            Debug.Log("aaaaaaaaaa324234");
             Destroy(powerUp);
+        powerUpped = true;
+        Debug.Log("aaaaaaaaaa324234");
+        yield return new WaitForSeconds(5.0f);
+        powerUpped = false;
+            
+            
 
     }
 }
