@@ -43,9 +43,10 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PauseMenu win = GetComponent<PauseMenu>();
         if (enemiesKilled == 1) 
         {
-            PauseMenu win = GetComponent<PauseMenu>();
+            
         
             win.playerWon();
         }
