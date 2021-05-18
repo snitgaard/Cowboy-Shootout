@@ -43,6 +43,12 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemiesKilled == 1) 
+        {
+            PauseMenu win = GetComponent<PauseMenu>();
+        
+            win.playerWon();
+        }
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (isReloading)
