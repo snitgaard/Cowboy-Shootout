@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
     public Text enemiesKilledText;
     public int enemiesKilled = 0;
 
+    public PauseMenu pauseMenuObject;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +44,9 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PauseMenu win = GetComponent<PauseMenu>();
         if (enemiesKilled == 1) 
         {
-            
-        
-            win.playerWon();
+            pauseMenuObject.playerWon();
         }
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
