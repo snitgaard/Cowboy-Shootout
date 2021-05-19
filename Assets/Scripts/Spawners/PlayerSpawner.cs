@@ -8,5 +8,6 @@ public class PlayerSpawner : MonoBehaviour
     public void spawnPlayer() 
     {
         Instantiate(player, transform.position, transform.rotation);
+        Time.timeScale = 1f;
     }
 }

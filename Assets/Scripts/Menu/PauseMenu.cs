@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("DEN KLIKKER PÅ KNAPPEN");
 
-        Time.timeScale = 1f;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         
     }
