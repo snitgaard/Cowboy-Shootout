@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject pauseMenuUI;
+    public GameObject UI;
     public Button exitButton;
     // Update is called once per frame
     
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     public void playerLost() 
     {
         Cursor.lockState = CursorLockMode.Confined;
+        UI.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -41,6 +43,7 @@ public class PauseMenu : MonoBehaviour
     public void playerWon() 
     {
         Cursor.lockState = CursorLockMode.Confined;
+        UI.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-
+    public GameObject UI;
     public GameObject startMenuUI;
     public Button startButton;
     public PlayerSpawner playerSpawner;
@@ -33,5 +33,6 @@ public class StartMenu : MonoBehaviour
         powerUpSpawner.spawnPowerUp();
         spawnManager.startEnemySpawn();
         startMenuUI.SetActive(false);
+        UI.SetActive(true);
     }
 }

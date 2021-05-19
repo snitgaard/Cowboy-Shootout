@@ -14,14 +14,7 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     private GameObject powerUp;
-    private Rigidbody playerRb;
     private bool powerUpped;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerRb = GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -55,12 +48,8 @@ public class PlayerController : MonoBehaviour
         powerUp = GameObject.Find("PowerUp(Clone)");
         if (other.gameObject.tag == "PowerUp")
             Destroy(powerUp);
-        powerUpped = true;
-        Debug.Log("aaaaaaaaaa324234");
-        yield return new WaitForSeconds(5.0f);
-        powerUpped = false;
-            
-            
-
+            powerUpped = true;
+            yield return new WaitForSeconds(5.0f);
+            powerUpped = false;
     }
 }

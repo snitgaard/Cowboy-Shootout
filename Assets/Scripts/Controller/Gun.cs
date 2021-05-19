@@ -33,9 +33,9 @@ public class Gun : MonoBehaviour
     void Start()
     {
         pauseMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<PauseMenu>();
-        enemiesKilledText = GameObject.Find("Canvas/EnemiesKilled").GetComponent<Text>();
+        enemiesKilledText = GameObject.Find("Canvas/UI/EnemiesKilled").GetComponent<Text>();
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
-        currentAmmoText = GameObject.Find("Canvas/Ammo").GetComponent<Text>();
+        currentAmmoText = GameObject.Find("Canvas/UI/Ammo").GetComponent<Text>();
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
         if (currentAmmo == -1)
         {
