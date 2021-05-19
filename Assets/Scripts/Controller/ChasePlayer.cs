@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.SceneManagement;
 public class ChasePlayer : MonoBehaviour
 {
     public float speed;
@@ -44,7 +44,7 @@ public class ChasePlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             pauseMenuObject.playerLost();
-        Destroy(player);
         
+
     }
 }

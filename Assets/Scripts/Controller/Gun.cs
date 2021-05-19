@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
     {
         if (enemiesKilled == 1) 
         {
-            pauseMenuObject.playerWon();
+            pauseMenuObject.playerLost();
         }
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;

@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 978400970}
+  exitButton: {fileID: 1594671138}
 --- !u!1 &282005045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1238,7 @@ GameObject:
   - component: {fileID: 1594671139}
   - component: {fileID: 1594671138}
   m_Layer: 5
-  m_Name: EXITButton
+  m_Name: exitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
