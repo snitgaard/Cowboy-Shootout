@@ -26,11 +26,13 @@ public class Gun : MonoBehaviour
     public Text enemiesKilledText;
     public int enemiesKilled = 0;
 
-    public PauseMenu pauseMenuObject;
+    private PauseMenu pauseMenuObject;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<PauseMenu>();
         enemiesKilledText = GameObject.Find("Canvas/EnemiesKilled").GetComponent<Text>();
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText = GameObject.Find("Canvas/Ammo").GetComponent<Text>();

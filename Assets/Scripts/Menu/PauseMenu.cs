@@ -12,11 +12,14 @@ public class PauseMenu : MonoBehaviour
     
     void Start() 
     {
-        pauseMenuUI.SetActive(false);
+        
     }
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.P)) 
+        {
+            playerWon();
+        }
     }
 
 
@@ -25,9 +28,11 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-    void playerLost() 
+    public void playerLost() 
     {
-
+        Cursor.lockState = CursorLockMode.Confined;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     
