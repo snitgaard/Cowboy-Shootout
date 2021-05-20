@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class ExitMenu : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject pauseMenuUI;
+    public GameObject exitMenuUI;
     public GameObject UI;
     public Button exitButton;
     // Update is called once per frame
@@ -25,17 +25,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
-    void Pause()
-    {
-        
-    }
-
     public void playerLost() 
     {
         Cursor.lockState = CursorLockMode.Confined;
         UI.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        exitMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
@@ -44,15 +38,13 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         UI.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        exitMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void exitGame() 
     {
         Debug.Log("DEN KLIKKER PÅ KNAPPEN");
-
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         
     }

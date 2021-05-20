@@ -26,13 +26,13 @@ public class Gun : MonoBehaviour
     public Text enemiesKilledText;
     public int enemiesKilled = 0;
 
-    private PauseMenu pauseMenuObject;
+    private ExitMenu exitMenuObject;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<PauseMenu>();
+        exitMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ExitMenu>();
         enemiesKilledText = GameObject.Find("Canvas/UI/EnemiesKilled").GetComponent<Text>();
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText = GameObject.Find("Canvas/UI/Ammo").GetComponent<Text>();
@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
     {
         if (enemiesKilled == 1) 
         {
-            pauseMenuObject.playerLost();
+            exitMenuObject.playerWon();
         }
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;

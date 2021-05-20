@@ -14,11 +14,11 @@ public class ChasePlayer : MonoBehaviour
     public Transform target;
 
     public float damage = 1.0f;
-    private PauseMenu pauseMenuObject;
+    private ExitMenu exitMenuObject;
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<PauseMenu>();
+        exitMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ExitMenu>();
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player(Clone)");
     }
@@ -43,7 +43,7 @@ public class ChasePlayer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            pauseMenuObject.playerLost();
+            exitMenuObject.playerLost();
         
 
     }

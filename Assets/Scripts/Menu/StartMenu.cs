@@ -17,13 +17,6 @@ public class StartMenu : MonoBehaviour
     {
         Button btn = startButton.GetComponent<Button>();
         btn.onClick.AddListener(startGame);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void startGame() 
