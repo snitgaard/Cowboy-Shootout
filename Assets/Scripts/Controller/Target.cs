@@ -6,16 +6,12 @@ public class Target : MonoBehaviour
 {
     public float health = 20f;
     public ParticleSystem bloodEffect;
-  //  public ParticleSystem hitEffect;
 
     public int TakeDamage(float amount) 
     {
-        // hitEffect.Play();
-        
         health -= amount;
         if(health <= 0f) 
         {
-            
             Die();
             return 1;
         }

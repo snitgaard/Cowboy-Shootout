@@ -1,20 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class ChasePlayer : MonoBehaviour
 {
     public float speed;
+    public float damage = 1.0f;
 
-    private Rigidbody enemyRb;
-
-    private GameObject player;
     public Collider playerCollider;
     public Transform target;
-
-    public float damage = 1.0f;
+    public Text result;
+    
     private ExitMenu exitMenuObject;
+    private Rigidbody enemyRb;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +42,10 @@ public class ChasePlayer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            exitMenuObject.playerLost();
-        
+            exitMenuObject.gameOver();
+            result = GameObject.Find("Canvas/gameOver/Result").GetComponent<Text>();    
+            result.text = "You died. The Cowboys caught you";
+
 
     }
 }

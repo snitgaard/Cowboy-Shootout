@@ -37,10 +37,14 @@ MonoBehaviour:
   impactForce: 30
   maxAmmo: 10
   currentAmmo: 10
-  reloadTime: 5
+  reloadTime: 3
   fpsCam: {fileID: 5212383948806344034}
   muzzleFlash: {fileID: 4964787551563472186}
   animator: {fileID: 5900214012370061310}
+  currentAmmoText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
+  enemiesKilled: 0
+  result: {fileID: 0}
 --- !u!1 &373018873514444434
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 30f;
+    
     public float jumpHeight = 2.0f;
-    public CharacterController controller;
-    public float gravity = -4.00f;
-    public Transform groundCheck;
     public float groundDistance = 0.4f;
+    public float gravity = -4.00f;
+
+    public CharacterController controller;
+    public Transform groundCheck;
     public LayerMask groundMask;
-    Vector3 velocity;
-    bool isGrounded;
+
+    public Vector3 velocity;
+    public bool isGrounded;
+
+    private float speed = 30f;
     private GameObject powerUp;
     private bool powerUpped;
 
     // Update is called once per frame
     void Update()
     {
-        
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0) 
@@ -36,7 +39,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded || Input.GetButtonDown("Jump") && powerUpped == true) 
         {
-            Debug.Log("Space Down");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;

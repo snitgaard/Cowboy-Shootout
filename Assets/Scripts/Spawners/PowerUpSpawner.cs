@@ -5,17 +5,15 @@ using UnityEngine;
 public class PowerUpSpawner : MonoBehaviour
 {
     public GameObject powerUp;
-    private float spawnRange = 80;
     public int powerUpCount;
-
+    private float spawnRange = 80;
+    
     // Update is called once per frame
     void Update()
     {
         powerUpCount = GameObject.FindGameObjectsWithTag("PowerUp").Length;
-
         if (powerUpCount == 0)
         {
-            Debug.Log("Spawned new PowerUp");
             Instantiate(powerUp, GenerateSpawnPositions(), powerUp.transform.rotation);
         }
     }

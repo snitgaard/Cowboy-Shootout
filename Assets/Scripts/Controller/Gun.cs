@@ -10,26 +10,24 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float impactForce = 30f;
-
+    public float reloadTime = 3f;
     public int maxAmmo = 10;
     public int currentAmmo;
-    public float reloadTime = 5f;
-    private bool isReloading = false;
-
+    public int enemiesKilled = 0;
+    
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
 
-    private float nextTimeToFire = 0f;
-
     public Animator animator;
+
     public Text currentAmmoText;
     public Text enemiesKilledText;
-    public int enemiesKilled = 0;
+    public Text result;
 
+    private bool isReloading = false;
+    private float nextTimeToFire = 0f;
     private ExitMenu exitMenuObject;
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         exitMenuObject = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ExitMenu>();
@@ -46,9 +44,11 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemiesKilled == 1) 
+        if (enemiesKilled == 15) 
         {
-            exitMenuObject.playerWon();
+            exitMenuObject.gameOver();
+            result = GameObject.Find("Canvas/gameOver/Result").GetComponent<Text>();
+            result.text = "Congratulations you won. You killed :" + enemiesKilled;
         }
         enemiesKilledText.text = "Killed Enemies:" + " " + enemiesKilled;
         currentAmmoText.text = "" + currentAmmo + "/" + maxAmmo;
@@ -72,7 +72,6 @@ public class Gun : MonoBehaviour
     IEnumerator Reload() 
     {
         isReloading = true;
-        Debug.Log("Reload");
 
         animator.SetBool("Reloading", true);
 
@@ -87,13 +86,9 @@ public class Gun : MonoBehaviour
     {
         muzzleFlash.Play();
         RaycastHit hit;
-
         currentAmmo--;
-
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) 
         {
-            Debug.Log(hit.transform.name);
-
             Target target = hit.transform.GetComponent<Target>();
             if (target != null) 
             {

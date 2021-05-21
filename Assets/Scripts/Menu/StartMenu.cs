@@ -21,7 +21,6 @@ public class StartMenu : MonoBehaviour
 
     void startGame() 
     {
-        Debug.Log("Den gør det her");
         playerSpawner.spawnPlayer();
         powerUpSpawner.spawnPowerUp();
         spawnManager.startEnemySpawn();
