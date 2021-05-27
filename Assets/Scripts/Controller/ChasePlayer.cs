@@ -21,8 +21,6 @@ public class ChasePlayer : MonoBehaviour
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player(Clone)");
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (target != null)
@@ -31,21 +29,17 @@ public class ChasePlayer : MonoBehaviour
             Vector3 lookDirection = (player.transform.position - transform.position).normalized;
             enemyRb.AddForce(lookDirection * speed);
         }
-
         if (transform.position.y < -10) 
         {
             Destroy(gameObject);
         }
         
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
             exitMenuObject.gameOver();
             result = GameObject.Find("Canvas/gameOver/Result").GetComponent<Text>();    
             result.text = "You died. The Cowboys caught you";
-
-
     }
 }
